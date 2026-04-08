@@ -121,7 +121,18 @@ export default function AssessmentPage() {
         }),
       });
 
-      if (!response.ok) throw new Error("分析请求失败");
+      if (!response.ok) {
+        let detail = `分析请求失败（HTTP ${response.status}）`;
+        try {
+          const errJson = await response.clone().json();
+          if (errJson && typeof errJson.error === "string") {
+            detail = errJson.error;
+          }
+        } catch {
+          /* 非 JSON 时再走通用提示 */
+        }
+        throw new Error(detail);
+      }
 
       // 处理流式响应
       const reader = response.body?.getReader();

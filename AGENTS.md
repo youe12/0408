@@ -12,7 +12,7 @@
 - **UI 组件**: shadcn/ui (基于 Radix UI)
 - **Styling**: Tailwind CSS 4
 - **图表**: Recharts
-- **AI**: 豆包模型 (coze-coding-dev-sdk)
+- **AI**: 火山方舟豆包 (OpenAI 兼容 HTTP，`ARK_API_KEY` / 可选 `ARK_BASE_URL` / `ARK_MODEL`)
 
 ## 项目结构
 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { LLMClient, Config, HeaderUtils } from "coze-coding-dev-sdk";
 import { LLM_CONFIG } from "@/lib/llm-config";
+import { getArkEnvOrError } from "@/lib/ark-config";
+import { streamArkChatCompletions } from "@/lib/ark-stream";
 
 interface Answer {
   questionId: number;
@@ -19,9 +20,8 @@ interface AnalysisRequest {
  * 构建分析提示词
  */
 function buildAnalysisPrompt(data: AnalysisRequest): string {
-  // 按维度计算分数
   const dimensionScores: Record<string, { total: number; count: number }> = {};
-  
+
   data.answers.forEach((answer) => {
     if (!dimensionScores[answer.dimension]) {
       dimensionScores[answer.dimension] = { total: 0, count: 0 };
@@ -30,7 +30,6 @@ function buildAnalysisPrompt(data: AnalysisRequest): string {
     dimensionScores[answer.dimension].count += 1;
   });
 
-  // 计算各维度平均分
   const dimensionAverages = Object.entries(dimensionScores).map(([name, { total, count }]) => ({
     name,
     average: (total / count).toFixed(2),
@@ -38,7 +37,7 @@ function buildAnalysisPrompt(data: AnalysisRequest): string {
   }));
 
   const childInfo = data.childName
-    ? `孩子姓名：${data.childName}${data.childAge ? `，年龄：${data.childAge}岁` : ''}`
+    ? `孩子姓名：${data.childName}${data.childAge ? `，年龄：${data.childAge}岁` : ""}`
     : "";
 
   return `请分析以下儿童天赋测评结果：
@@ -46,10 +45,10 @@ function buildAnalysisPrompt(data: AnalysisRequest): string {
 ${childInfo}
 
 【各维度得分情况】（1-5分制）
-${dimensionAverages.map(d => `- ${d.name}：平均 ${d.average} 分（共 ${d.questionsCount} 题）`).join('\n')}
+${dimensionAverages.map((d) => `- ${d.name}：平均 ${d.average} 分（共 ${d.questionsCount} 题）`).join("\n")}
 
 【作答详情】
-${data.answers.map(a => `题目${a.questionId}（${a.assessmentType}-${a.dimension}）：得分 ${a.score}`).join('\n')}
+${data.answers.map((a) => `题目${a.questionId}（${a.assessmentType}-${a.dimension}）：得分 ${a.score}`).join("\n")}
 
 请按照以下固定格式输出分析报告，严格遵守结构要求：
 
@@ -78,26 +77,25 @@ ${data.answers.map(a => `题目${a.questionId}（${a.assessmentType}-${a.dimensi
 
 /**
  * POST /api/analyze
- * AI分析答题结果
+ * AI 分析答题结果（火山方舟豆包流式输出）
  */
 export async function POST(request: NextRequest) {
   try {
     const body: AnalysisRequest = await request.json();
-    
+
     if (!body.answers || !Array.isArray(body.answers) || body.answers.length === 0) {
-      return NextResponse.json(
-        { error: "请提供有效的答题数据" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "请提供有效的答题数据" }, { status: 400 });
     }
 
-    const config = new Config();
-    const customHeaders = HeaderUtils.extractForwardHeaders(request.headers);
-    const client = new LLMClient(config, customHeaders);
+    const ark = getArkEnvOrError();
+    if (!ark.ok) {
+      console.error("火山方舟配置检查失败:", ark.message);
+      return NextResponse.json({ error: ark.message }, { status: 503 });
+    }
 
+    const model = process.env.ARK_MODEL?.trim() || LLM_CONFIG.model;
     const prompt = buildAnalysisPrompt(body);
 
-    // 使用流式输出
     const encoder = new TextEncoder();
     const stream = new ReadableStream({
       async start(controller) {
@@ -107,16 +105,14 @@ export async function POST(request: NextRequest) {
             { role: "user" as const, content: prompt },
           ];
 
-          const aiStream = client.stream(messages, {
-            model: LLM_CONFIG.model,
+          for await (const chunk of streamArkChatCompletions({
+            apiKey: ark.apiKey,
+            baseUrl: ark.baseUrl,
+            model,
+            messages,
             temperature: LLM_CONFIG.temperature,
-            thinking: LLM_CONFIG.thinking,
-          });
-
-          for await (const chunk of aiStream) {
-            if (chunk.content) {
-              controller.enqueue(encoder.encode(chunk.content.toString()));
-            }
+          })) {
+            if (chunk) controller.enqueue(encoder.encode(chunk));
           }
           controller.close();
         } catch (error) {
@@ -129,16 +125,12 @@ export async function POST(request: NextRequest) {
     return new Response(stream, {
       headers: {
         "Content-Type": "text/event-stream; charset=utf-8",
-        "Transfer-Encoding": "chunked",
         "Cache-Control": "no-cache",
-        "Connection": "keep-alive",
+        Connection: "keep-alive",
       },
     });
   } catch (error) {
     console.error("分析请求错误:", error);
-    return NextResponse.json(
-      { error: "分析服务暂时不可用，请稍后重试" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "分析服务暂时不可用，请稍后重试" }, { status: 500 });
   }
 }

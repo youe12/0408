@@ -1,6 +1,22 @@
-import { createServer } from 'http';
-import { parse } from 'url';
+import { createServer, type IncomingMessage } from 'http';
+import type { ParsedUrlQuery } from 'querystring';
 import next from 'next';
+
+/** WHATWG URL，避免 Node 警告 DEP0169（url.parse 已弃用） */
+function parseRequestUrl(req: IncomingMessage, fallbackHost: string): {
+  pathname: string;
+  query: ParsedUrlQuery;
+} {
+  const host = req.headers.host ?? fallbackHost;
+  const base = host.includes(':') ? `http://${host}` : `http://${host}`;
+  const u = new URL(req.url ?? '/', base);
+  const query: ParsedUrlQuery = {};
+  for (const key of u.searchParams.keys()) {
+    const values = u.searchParams.getAll(key);
+    query[key] = values.length <= 1 ? values[0] ?? '' : values;
+  }
+  return { pathname: u.pathname, query };
+}
 
 const dev = process.env.COZE_PROJECT_ENV !== 'PROD';
 const hostname = process.env.HOSTNAME || 'localhost';
@@ -13,8 +29,9 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = createServer(async (req, res) => {
     try {
-      const parsedUrl = parse(req.url!, true);
-      await handle(req, res, parsedUrl);
+      const parsedUrl = parseRequestUrl(req, `${hostname}:${port}`);
+      // Next 类型要求完整 Url 对象，运行时仅需 pathname + query（与官方 custom server 示例行为一致）
+      await handle(req, res, parsedUrl as Parameters<typeof handle>[2]);
     } catch (err) {
       console.error('Error occurred handling', req.url, err);
       res.statusCode = 500;

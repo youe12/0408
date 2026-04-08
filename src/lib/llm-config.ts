@@ -1,13 +1,12 @@
 /**
- * AI配置 - 豆包模型配置
- * 用途：儿童天赋测评AI分析服务
+ * AI 配置 — 火山方舟（豆包）对话
+ * 默认 model 须与控制台「推理接入」一致；线上可用环境变量 ARK_MODEL 覆盖。
  */
 
 export const LLM_CONFIG = {
-  // 模型配置
-  model: "doubao-seed-2-0-pro-260215", // 旗舰级全能通用模型，用于复杂的教育评估分析
-  temperature: 0.7, // 适度创意，保持专业客观
-  thinking: "disabled", // 快速响应评测分析
+  /** 与方舟「推理接入」一致：可为模型 ID 或 ep-xxxx；线上建议用 ARK_MODEL 覆盖 */
+  model: "doubao-seed-2-0-pro-260215",
+  temperature: 0.7,
 
   // 分析报告格式配置
   reportFormat: {
