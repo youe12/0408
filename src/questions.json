@@ -1,0 +1,594 @@
+{
+    "assessmentInfo": {
+      "title": "儿童AI天赋测评工具40道题库",
+      "theoreticalBasis": "结合韦氏智力测评框架+多元智能测试维度",
+      "targetGroup": "6-12岁儿童（家长陪同共同作答）",
+      "totalQuestions": 40,
+      "scoringRule": {
+        "type": "singleChoice",
+        "scoreRange": [1,5],
+        "scoreDescription": {
+          "1": "完全做不到/不擅长",
+          "2": "不太擅长",
+          "3": "一般",
+          "4": "比较擅长",
+          "5": "非常擅长/能轻松完成"
+        }
+      },
+      "avoidanceRules": [
+        "无引导性、情绪化、绝对化语言，不设置敏感、隐私、诱导类问题",
+        "题目难度贴合6-12岁儿童认知水平，无超纲、晦涩内容，家长可辅助孩子理解题意",
+        "不涉及性别、地域、家庭背景等歧视性内容，不贴“聪明/笨拙”等负面标签",
+        "每道题后附“测评维度提示”（做题后反馈），告知家长/孩子本题考察的核心能力"
+      ],
+      "usageInstructions": [
+        "作答方式：家长陪同孩子共同完成，家长可辅助孩子理解题意，但不提示答案，确保测评结果真实",
+        "计分方式：每道题按孩子实际情况选择对应选项，1-5分对应能力等级，AI可直接读取各维度分数，计算总分及维度占比",
+        "规避问题反馈：做题后，除了维度提示，若发现题目存在引导性、晦涩等问题，可在测评结束后提交反馈，用于题库优化",
+        "适配性：题目难度适配6-12岁儿童，可根据孩子年龄适当调整题意解读方式，不改变题目核心考察维度"
+      ]
+    },
+    "questionBank": [
+      {
+        "questionId": 1,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "逻辑推理",
+        "questionContent": "观察规律“1、3、5、7、？”，接下来的数字应该是？",
+        "options": [
+          {"option": "A", "content": "8", "score": 1},
+          {"option": "B", "content": "9", "score": 5},
+          {"option": "C", "content": "10", "score": 2},
+          {"option": "D", "content": "11", "score": 3}
+        ],
+        "prompt": "考察逻辑推理中的数字规律归纳能力",
+        "isScore": true
+      },
+      {
+        "questionId": 2,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "逻辑推理",
+        "questionContent": "苹果、香蕉、橙子都是水果，下列选项中，和它们属于同一类的是？",
+        "options": [
+          {"option": "A", "content": "米饭", "score": 1},
+          {"option": "B", "content": "西瓜", "score": 5},
+          {"option": "C", "content": "牛奶", "score": 2},
+          {"option": "D", "content": "面包", "score": 3}
+        ],
+        "prompt": "考察逻辑推理中的类别归纳能力",
+        "isScore": true
+      },
+      {
+        "questionId": 3,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "逻辑推理",
+        "questionContent": "如果“小明比小红高，小红比小刚高”，那么谁最高？",
+        "options": [
+          {"option": "A", "content": "小明", "score": 5},
+          {"option": "B", "content": "小红", "score": 2},
+          {"option": "C", "content": "小刚", "score": 1},
+          {"option": "D", "content": "无法判断", "score": 3}
+        ],
+        "prompt": "考察逻辑推理中的关系推理能力",
+        "isScore": true
+      },
+      {
+        "questionId": 4,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "逻辑推理",
+        "questionContent": "观察图形“圆形→方形→圆形→方形”，下一个图形应该是？",
+        "options": [
+          {"option": "A", "content": "三角形", "score": 1},
+          {"option": "B", "content": "圆形", "score": 5},
+          {"option": "C", "content": "方形", "score": 2},
+          {"option": "D", "content": "五角星", "score": 3}
+        ],
+        "prompt": "考察逻辑推理中的图形规律归纳能力",
+        "isScore": true
+      },
+      {
+        "questionId": 5,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "逻辑推理",
+        "questionContent": "妈妈买了10个苹果，吃了3个，又买了2个，现在有多少个苹果？",
+        "options": [
+          {"option": "A", "content": "7个", "score": 2},
+          {"option": "B", "content": "8个", "score": 3},
+          {"option": "C", "content": "9个", "score": 5},
+          {"option": "D", "content": "10个", "score": 1}
+        ],
+        "prompt": "考察逻辑推理中的简单数量推理能力",
+        "isScore": true
+      },
+      {
+        "questionId": 6,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "逻辑推理",
+        "questionContent": "下列哪种行为和“下雨要打伞”的逻辑最像？",
+        "options": [
+          {"option": "A", "content": "饿了要喝水", "score": 1},
+          {"option": "B", "content": "冷了要穿衣服", "score": 5},
+          {"option": "C", "content": "累了要跑步", "score": 2},
+          {"option": "D", "content": "困了要吃饭", "score": 3}
+        ],
+        "prompt": "考察逻辑推理中的因果关系判断能力",
+        "isScore": true
+      },
+      {
+        "questionId": 7,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "言语理解",
+        "questionContent": "“鲜艳”这个词，最适合用来形容下列哪样东西？",
+        "options": [
+          {"option": "A", "content": "灰色的石头", "score": 1},
+          {"option": "B", "content": "红色的花朵", "score": 5},
+          {"option": "C", "content": "黑色的夜晚", "score": 2},
+          {"option": "D", "content": "白色的纸张", "score": 3}
+        ],
+        "prompt": "考察言语理解中的词汇理解能力",
+        "isScore": true
+      },
+      {
+        "questionId": 8,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "言语理解",
+        "questionContent": "请说出“开心”的反义词，下列选项中正确的是？",
+        "options": [
+          {"option": "A", "content": "快乐", "score": 2},
+          {"option": "B", "content": "难过", "score": 5},
+          {"option": "C", "content": "生气", "score": 3},
+          {"option": "D", "content": "兴奋", "score": 1}
+        ],
+        "prompt": "考察言语理解中的反义词辨析能力",
+        "isScore": true
+      },
+      {
+        "questionId": 9,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "言语理解",
+        "questionContent": "听完这句话“小鸟在树上唱歌，蝴蝶在花丛中跳舞”，下列说法正确的是？",
+        "options": [
+          {"option": "A", "content": "小鸟在花丛中", "score": 1},
+          {"option": "B", "content": "蝴蝶在树上", "score": 2},
+          {"option": "C", "content": "小鸟在树上唱歌", "score": 5},
+          {"option": "D", "content": "蝴蝶在地上跳舞", "score": 3}
+        ],
+        "prompt": "考察言语理解中的语句理解能力",
+        "isScore": true
+      },
+      {
+        "questionId": 10,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "言语理解",
+        "questionContent": "用“因为……所以……”说一句话，下列说法最通顺的是？",
+        "options": [
+          {"option": "A", "content": "因为我吃饭，所以我睡觉", "score": 1},
+          {"option": "B", "content": "因为下雨，所以我打伞", "score": 5},
+          {"option": "C", "content": "因为我开心，所以我难过", "score": 2},
+          {"option": "D", "content": "因为太阳升起，所以天黑了", "score": 3}
+        ],
+        "prompt": "考察言语理解中的语句表达能力",
+        "isScore": true
+      },
+      {
+        "questionId": 11,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "言语理解",
+        "questionContent": "“谦虚”的意思，最接近下列哪个词？",
+        "options": [
+          {"option": "A", "content": "骄傲", "score": 1},
+          {"option": "B", "content": "虚心", "score": 5},
+          {"option": "C", "content": "自信", "score": 3},
+          {"option": "D", "content": "胆小", "score": 2}
+        ],
+        "prompt": "考察言语理解中的近义词辨析能力",
+        "isScore": true
+      },
+      {
+        "questionId": 12,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "言语理解",
+        "questionContent": "请简单描述“桌子”的样子，下列描述最完整的是？",
+        "options": [
+          {"option": "A", "content": "一个东西", "score": 1},
+          {"option": "B", "content": "有桌面、有腿，能放东西", "score": 5},
+          {"option": "C", "content": "是方形的", "score": 2},
+          {"option": "D", "content": "很硬", "score": 3}
+        ],
+        "prompt": "考察言语理解中的事物描述能力",
+        "isScore": true
+      },
+      {
+        "questionId": 13,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "空间感知",
+        "questionContent": "把一个正方形的纸对折一次，能得到什么形状？",
+        "options": [
+          {"option": "A", "content": "圆形", "score": 1},
+          {"option": "B", "content": "长方形", "score": 5},
+          {"option": "C", "content": "三角形", "score": 3},
+          {"option": "D", "content": "五边形", "score": 2}
+        ],
+        "prompt": "考察空间感知中的图形折叠能力",
+        "isScore": true
+      },
+      {
+        "questionId": 14,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "空间感知",
+        "questionContent": "从正面看一个正方体，能看到的形状是？",
+        "options": [
+          {"option": "A", "content": "圆形", "score": 1},
+          {"option": "B", "content": "正方形", "score": 5},
+          {"option": "C", "content": "长方形", "score": 3},
+          {"option": "D", "content": "三角形", "score": 2}
+        ],
+        "prompt": "考察空间感知中的立体图形观察能力",
+        "isScore": true
+      },
+      {
+        "questionId": 15,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "空间感知",
+        "questionContent": "如果你的前面是东，那么你的后面是什么方向？",
+        "options": [
+          {"option": "A", "content": "南", "score": 2},
+          {"option": "B", "content": "西", "score": 5},
+          {"option": "C", "content": "北", "score": 3},
+          {"option": "D", "content": "东", "score": 1}
+        ],
+        "prompt": "考察空间感知中的方位判断能力",
+        "isScore": true
+      },
+      {
+        "questionId": 16,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "空间感知",
+        "questionContent": "观察下图（假设为“圆形里面有一个三角形”），下列说法正确的是？",
+        "options": [
+          {"option": "A", "content": "三角形在圆形外面", "score": 1},
+          {"option": "B", "content": "圆形在三角形里面", "score": 2},
+          {"option": "C", "content": "三角形在圆形里面", "score": 5},
+          {"option": "D", "content": "圆形和三角形没有关系", "score": 3}
+        ],
+        "prompt": "考察空间感知中的图形位置判断能力",
+        "isScore": true
+      },
+      {
+        "questionId": 17,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "记忆力",
+        "questionContent": "请记住这3个数字：3、7、2，10秒后说出这3个数字（家长可计时），孩子能准确说出的情况是？",
+        "options": [
+          {"option": "A", "content": "完全说不出", "score": 1},
+          {"option": "B", "content": "只能说出1个", "score": 2},
+          {"option": "C", "content": "能说出2个", "score": 3},
+          {"option": "D", "content": "能准确说出3个", "score": 5}
+        ],
+        "prompt": "考察记忆力中的短时数字记忆能力",
+        "isScore": true
+      },
+      {
+        "questionId": 18,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "记忆力",
+        "questionContent": "请记住这3种水果：苹果、香蕉、橙子，10秒后说出，孩子能准确说出的情况是？",
+        "options": [
+          {"option": "A", "content": "完全说不出", "score": 1},
+          {"option": "B", "content": "只能说出1种", "score": 2},
+          {"option": "C", "content": "能说出2种", "score": 3},
+          {"option": "D", "content": "能准确说出3种", "score": 5}
+        ],
+        "prompt": "考察记忆力中的短时事物记忆能力",
+        "isScore": true
+      },
+      {
+        "questionId": 19,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "记忆力",
+        "questionContent": "妈妈说一句话：“今天我们去公园玩，看到了小鸟和蝴蝶”，让孩子复述，孩子的复述情况是？",
+        "options": [
+          {"option": "A", "content": "完全复述不出", "score": 1},
+          {"option": "B", "content": "只能说出1个关键词", "score": 2},
+          {"option": "C", "content": "能说出大部分内容", "score": 3},
+          {"option": "D", "content": "能完整准确复述", "score": 5}
+        ],
+        "prompt": "考察记忆力中的短时语句记忆能力",
+        "isScore": true
+      },
+      {
+        "questionId": 20,
+        "assessmentType": "韦氏智力测评",
+        "dimension": "记忆力",
+        "questionContent": "观察一张简单的图片（假设为“3只小猫、1朵花、2个气球”），看10秒后闭上眼睛，孩子能说出图片中物品的数量和种类的情况是？",
+        "options": [
+          {"option": "A", "content": "完全说不出", "score": 1},
+          {"option": "B", "content": "只能说出1种物品", "score": 2},
+          {"option": "C", "content": "能说出2种物品，数量不准确", "score": 3},
+          {"option": "D", "content": "能准确说出所有物品及数量", "score": 5}
+        ],
+        "prompt": "考察记忆力中的短时细节记忆能力",
+        "isScore": true
+      },
+      {
+        "questionId": 21,
+        "assessmentType": "多元智能测试",
+        "dimension": "语言智能",
+        "questionContent": "孩子喜欢听故事、读绘本，并且能把听过的故事讲给别人听吗？",
+        "options": [
+          {"option": "A", "content": "完全不喜欢，也不会讲", "score": 1},
+          {"option": "B", "content": "喜欢听，但不会讲", "score": 2},
+          {"option": "C", "content": "喜欢听，能讲出部分内容", "score": 3},
+          {"option": "D", "content": "喜欢听，能完整讲出", "score": 5}
+        ],
+        "prompt": "考察语言智能中的故事理解与复述能力",
+        "isScore": true
+      },
+      {
+        "questionId": 22,
+        "assessmentType": "多元智能测试",
+        "dimension": "语言智能",
+        "questionContent": "孩子能主动用完整的句子表达自己的想法，很少出现语序混乱、用词不当的情况吗？",
+        "options": [
+          {"option": "A", "content": "不能，表达很混乱", "score": 1},
+          {"option": "B", "content": "偶尔能，经常用词不当", "score": 2},
+          {"option": "C", "content": "大部分能，偶尔语序混乱", "score": 3},
+          {"option": "D", "content": "能，表达清晰、用词准确", "score": 5}
+        ],
+        "prompt": "考察语言智能中的口语表达能力",
+        "isScore": true
+      },
+      {
+        "questionId": 23,
+        "assessmentType": "多元智能测试",
+        "dimension": "语言智能",
+        "questionContent": "孩子对汉字、拼音有兴趣，愿意主动认识新的汉字，或者尝试自己读简单的短文吗？",
+        "options": [
+          {"option": "A", "content": "完全没兴趣，不愿意", "score": 1},
+          {"option": "B", "content": "有一点兴趣，但不主动", "score": 2},
+          {"option": "C", "content": "愿意尝试，能认识几个汉字", "score": 3},
+          {"option": "D", "content": "很有兴趣，能主动认识新汉字、读短文", "score": 5}
+        ],
+        "prompt": "考察语言智能中的文字认知能力",
+        "isScore": true
+      },
+      {
+        "questionId": 24,
+        "assessmentType": "多元智能测试",
+        "dimension": "逻辑-数学智能",
+        "questionContent": "孩子能快速算出10以内的加减法，并且能理解简单的加减意义吗？",
+        "options": [
+          {"option": "A", "content": "不能，不会计算", "score": 1},
+          {"option": "B", "content": "能算少数几道，不理解意义", "score": 2},
+          {"option": "C", "content": "能算出大部分，基本理解意义", "score": 3},
+          {"option": "D", "content": "能快速算对，完全理解意义", "score": 5}
+        ],
+        "prompt": "考察逻辑-数学智能中的基础运算能力",
+        "isScore": true
+      },
+      {
+        "questionId": 25,
+        "assessmentType": "多元智能测试",
+        "dimension": "逻辑-数学智能",
+        "questionContent": "孩子喜欢玩拼图、积木，并且能根据形状、数量规律完成拼接吗？",
+        "options": [
+          {"option": "A", "content": "不喜欢，也不会拼接", "score": 1},
+          {"option": "B", "content": "喜欢，但不会找规律，拼不好", "score": 2},
+          {"option": "C", "content": "喜欢，能找简单规律，基本完成", "score": 3},
+          {"option": "D", "content": "喜欢，能快速找规律，顺利完成", "score": 5}
+        ],
+        "prompt": "考察逻辑-数学智能中的规律应用能力",
+        "isScore": true
+      },
+      {
+        "questionId": 26,
+        "assessmentType": "多元智能测试",
+        "dimension": "逻辑-数学智能",
+        "questionContent": "当遇到简单的问题（如“玩具不见了，可能在哪里”），孩子能主动思考、寻找解决办法吗？",
+        "options": [
+          {"option": "A", "content": "不能，只会哭闹", "score": 1},
+          {"option": "B", "content": "不会主动思考，需要家长提醒", "score": 2},
+          {"option": "C", "content": "能思考，偶尔能找到办法", "score": 3},
+          {"option": "D", "content": "能主动思考，快速找到解决办法", "score": 5}
+        ],
+        "prompt": "考察逻辑-数学智能中的问题解决能力",
+        "isScore": true
+      },
+      {
+        "questionId": 27,
+        "assessmentType": "多元智能测试",
+        "dimension": "空间智能",
+        "questionContent": "孩子能根据图纸，用积木搭出简单的造型（如房子、汽车）吗？",
+        "options": [
+          {"option": "A", "content": "不能，完全搭不出来", "score": 1},
+          {"option": "B", "content": "能搭出零散的积木，没有造型", "score": 2},
+          {"option": "C", "content": "能搭出简单造型，和图纸有差异", "score": 3},
+          {"option": "D", "content": "能准确搭出造型，和图纸一致", "score": 5}
+        ],
+        "prompt": "考察空间智能中的立体造型能力",
+        "isScore": true
+      },
+      {
+        "questionId": 28,
+        "assessmentType": "多元智能测试",
+        "dimension": "空间智能",
+        "questionContent": "孩子能分清“上下、前后、左右”，并且能准确说出物品的位置吗？",
+        "options": [
+          {"option": "A", "content": "不能，完全分不清", "score": 1},
+          {"option": "B", "content": "能分清少数几个方位", "score": 2},
+          {"option": "C", "content": "大部分能分清，偶尔出错", "score": 3},
+          {"option": "D", "content": "能准确分清所有方位", "score": 5}
+        ],
+        "prompt": "考察空间智能中的方位感知能力",
+        "isScore": true
+      },
+      {
+        "questionId": 29,
+        "assessmentType": "多元智能测试",
+        "dimension": "身体-动觉智能",
+        "questionContent": "孩子喜欢跑、跳、跳绳等运动，并且肢体动作协调、灵活吗？",
+        "options": [
+          {"option": "A", "content": "不喜欢运动，动作很笨拙", "score": 1},
+          {"option": "B", "content": "喜欢运动，但动作不协调", "score": 2},
+          {"option": "C", "content": "喜欢运动，动作基本协调", "score": 3},
+          {"option": "D", "content": "喜欢运动，动作灵活、协调", "score": 5}
+        ],
+        "prompt": "考察身体-动觉智能中的肢体协调能力",
+        "isScore": true
+      },
+      {
+        "questionId": 30,
+        "assessmentType": "多元智能测试",
+        "dimension": "身体-动觉智能",
+        "questionContent": "孩子能模仿别人的动作（如舞蹈动作、手势），并且模仿得比较像吗？",
+        "options": [
+          {"option": "A", "content": "不能模仿，或者模仿得完全不像", "score": 1},
+          {"option": "B", "content": "能模仿，但差异很大", "score": 2},
+          {"option": "C", "content": "能模仿，基本相似", "score": 3},
+          {"option": "D", "content": "能快速模仿，非常像", "score": 5}
+        ],
+        "prompt": "考察身体-动觉智能中的动作模仿能力",
+        "isScore": true
+      },
+      {
+        "questionId": 31,
+        "assessmentType": "多元智能测试",
+        "dimension": "音乐智能",
+        "questionContent": "孩子能听出两首歌的音调不同，或者能准确哼唱自己听过的歌曲吗？",
+        "options": [
+          {"option": "A", "content": "听不出音调差异，也不会哼唱", "score": 1},
+          {"option": "B", "content": "听不出音调差异，能哼唱几句但跑调", "score": 2},
+          {"option": "C", "content": "能听出音调差异，哼唱基本不跑调", "score": 3},
+          {"option": "D", "content": "能准确听出音调差异，哼唱完全不跑调", "score": 5}
+        ],
+        "prompt": "考察音乐智能中的音调感知与哼唱能力",
+        "isScore": true
+      },
+      {
+        "questionId": 32,
+        "assessmentType": "多元智能测试",
+        "dimension": "音乐智能",
+        "questionContent": "孩子对音乐有兴趣，听到音乐后会跟着节奏拍手、跺脚，或者跟着哼唱吗？",
+        "options": [
+          {"option": "A", "content": "没兴趣，听到音乐无反应", "score": 1},
+          {"option": "B", "content": "有一点兴趣，但不会跟着节奏动", "score": 2},
+          {"option": "C", "content": "有兴趣，能跟着节奏做简单动作", "score": 3},
+          {"option": "D", "content": "很有兴趣，能准确跟着节奏动作、哼唱", "score": 5}
+        ],
+        "prompt": "考察音乐智能中的节奏感知能力",
+        "isScore": true
+      },
+      {
+        "questionId": 33,
+        "assessmentType": "多元智能测试",
+        "dimension": "人际智能",
+        "questionContent": "孩子能主动和其他小朋友打招呼、一起玩耍，并且能友好相处、懂得分享吗？",
+        "options": [
+          {"option": "A", "content": "不愿意和小朋友相处，很孤僻", "score": 1},
+          {"option": "B", "content": "偶尔和小朋友玩，但不愿意分享", "score": 2},
+          {"option": "C", "content": "能和小朋友玩，基本能友好相处", "score": 3},
+          {"option": "D", "content": "主动和小朋友玩，懂得分享、友好相处", "score": 5}
+        ],
+        "prompt": "考察人际智能中的社交与分享能力",
+        "isScore": true
+      },
+      {
+        "questionId": 34,
+        "assessmentType": "多元智能测试",
+        "dimension": "人际智能",
+        "questionContent": "当看到别人不开心、难过时，孩子能察觉到，并且会安慰别人吗？",
+        "options": [
+          {"option": "A", "content": "察觉不到，也不会安慰", "score": 1},
+          {"option": "B", "content": "能察觉到，但不会安慰", "score": 2},
+          {"option": "C", "content": "能察觉到，会做简单的安慰动作", "score": 3},
+          {"option": "D", "content": "能察觉到，会主动安慰别人", "score": 5}
+        ],
+        "prompt": "考察人际智能中的共情与安慰能力",
+        "isScore": true
+      },
+      {
+        "questionId": 35,
+        "assessmentType": "多元智能测试",
+        "dimension": "内省智能",
+        "questionContent": "当孩子做错事时，能主动意识到自己的错误，并且愿意承认、改正吗？",
+        "options": [
+          {"option": "A", "content": "意识不到错误，不愿意承认", "score": 1},
+          {"option": "B", "content": "能意识到，但不愿意承认、改正", "score": 2},
+          {"option": "C", "content": "能意识到，愿意承认，偶尔改正", "score": 3},
+          {"option": "D", "content": "能意识到，主动承认并及时改正", "score": 5}
+        ],
+        "prompt": "考察内省智能中的自我反思与改正能力",
+        "isScore": true
+      },
+      {
+        "questionId": 36,
+        "assessmentType": "多元智能测试",
+        "dimension": "内省智能",
+        "questionContent": "孩子能清楚地知道自己喜欢什么、不喜欢什么，并且能说出原因吗？",
+        "options": [
+          {"option": "A", "content": "不知道自己喜欢什么，说不出原因", "score": 1},
+          {"option": "B", "content": "知道一点，但说不出原因", "score": 2},
+          {"option": "C", "content": "知道自己喜欢什么，能说出简单原因", "score": 3},
+          {"option": "D", "content": "清楚知道自己的喜好，能清晰说出原因", "score": 5}
+        ],
+        "prompt": "考察内省智能中的自我认知能力",
+        "isScore": true
+      },
+      {
+        "questionId": 37,
+        "assessmentType": "多元智能测试",
+        "dimension": "自然观察智能",
+        "questionContent": "孩子喜欢观察大自然（花草、树木、小动物），并且能发现它们的不同之处吗？",
+        "options": [
+          {"option": "A", "content": "不喜欢观察，也发现不了差异", "score": 1},
+          {"option": "B", "content": "喜欢观察，但发现不了差异", "score": 2},
+          {"option": "C", "content": "喜欢观察，能发现明显的差异", "score": 3},
+          {"option": "D", "content": "喜欢观察，能发现细微的差异", "score": 5}
+        ],
+        "prompt": "考察自然观察智能中的观察与区分能力",
+        "isScore": true
+      },
+      {
+        "questionId": 38,
+        "assessmentType": "多元智能测试",
+        "dimension": "自然观察智能",
+        "questionContent": "孩子能说出常见的花草、小动物的名字，并且知道它们的简单特点吗？",
+        "options": [
+          {"option": "A", "content": "说不出名字，也不知道特点", "score": 1},
+          {"option": "B", "content": "能说出少数几个名字，不知道特点", "score": 2},
+          {"option": "C", "content": "能说出多个名字，知道简单特点", "score": 3},
+          {"option": "D", "content": "能说出很多名字，清楚知道它们的特点", "score": 5}
+        ],
+        "prompt": "考察自然观察智能中的自然事物认知能力",
+        "isScore": true
+      },
+      {
+        "questionId": 39,
+        "assessmentType": "补充题",
+        "dimension": "无固定维度",
+        "questionContent": "在完成本次测评的过程中，孩子的配合度如何？",
+        "options": [
+          {"option": "A", "content": "完全不配合，不愿作答", "score": 1},
+          {"option": "B", "content": "配合度低，经常分心", "score": 2},
+          {"option": "C", "content": "配合度一般，偶尔分心", "score": 3},
+          {"option": "D", "content": "配合度高，认真作答", "score": 5}
+        ],
+        "prompt": "参考项，了解孩子测评过程中的状态，辅助解读报告",
+        "isScore": false
+      },
+      {
+        "questionId": 40,
+        "assessmentType": "补充题",
+        "dimension": "无固定维度",
+        "questionContent": "你觉得孩子在作答过程中，对题目难度的接受度如何？",
+        "options": [
+          {"option": "A", "content": "难度太高，完全不会做", "score": 1},
+          {"option": "B", "content": "难度较高，很多题不会", "score": 2},
+          {"option": "C", "content": "难度适中，少数题不会", "score": 3},
+          {"option": "D", "content": "难度适中，基本都会做", "score": 5}
+        ],
+        "prompt": "参考项，评估题库难度合理性，辅助优化测评工具",
+        "isScore": false
+      }
+    ]
+  }
+  
